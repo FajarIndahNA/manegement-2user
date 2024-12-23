@@ -12,7 +12,6 @@
 
                 <div class="card-body">
                     <div class="mb-3 text-end">
-                        {{-- style="" --}}
                         <button onclick="addForm('{{route('user.store')}}')" class="btn btn-success btn-border-0"  style="background: linear-gradient(135deg, #007bff, #28a745);"><i class="fa fa-plus-circle"></i> Tambah</button>
                     </div>
 
@@ -39,50 +38,6 @@
 @includeIf('users.form')
 @endsection
 
-{{-- @push('styles')
-<style>
-    /* Menambahkan margin pada Show entries */
-    .dataTables_length {
-        margin-bottom: 20px; /* Jarak bawah */
-    }
-
-    /* Menambahkan jarak ke dalam dropdown Show entries */
-    .dataTables_length select {
-        margin-right: 10px;
-    }
-
-    /* Menambahkan padding pada elemen tabel dan tombol */
-    .box-body.table-responsive {
-        padding-bottom: 30px; /* Menambah jarak bawah pada tabel */
-    }
-
-     /* Menambahkan margin bawah pada Show entries */
-    .dataTables_length {
-        margin-bottom: 20px; /* Jarak bawah */
-    }
-
-    /* Menambahkan margin kanan pada dropdown Show entries */
-    .dataTables_length select {
-        margin-right: 10px;
-    }
-
-    /* Menambahkan jarak pada tombol sorting (panah atas/bawah) */
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
-        margin-left: 10px;  /* Jarak kiri untuk tombol next/prev */
-    }
-
-    /* Menambahkan jarak antara angka dan panah sorting */
-    th.sorting, th.sorting_asc, th.sorting_desc {
-        padding-right: 10px;  /* Memberikan jarak kanan */
-    }
-
-    /* Menambahkan jarak pada panah naik dan turun */
-    th.sorting::after {
-        margin-left: 10px;  /* Jarak kiri pada panah sorting */
-    }
-</style>
-@endpush --}}
-
 
 @push('scripts')
 
@@ -103,15 +58,6 @@
             { data: 'name' },
             { data: 'email' },
             { data: 'level' },
-            // { 
-            //     data: 'level', 
-            //     render: function(data, type, row) {
-            //         // Menentukan warna berdasarkan level
-            //         var badgeClass = data === 'super_admin' ? 'badge-success' : 'badge-primary';  // Hijau untuk super_admin, Biru untuk admin
-            //         var badgeText = data === 'super_admin' ? 'Super Admin' : 'Admin';
-            //         return `<span class="badge ${badgeClass}">${badgeText}</span>`;
-            //     }
-            // },
             { data: 'aksi', searchable: false, orderable: false }
         ]
         });
@@ -121,29 +67,7 @@
         $(window).on('resize', function() {
             table.columns.adjust().draw();
         });
-    // });
 
-        // $('#modal-form').validator().on('submit', function (e) {
-        //     if (! e.preventDefault()) {
-        //         $.post($('#modal-form form').attr('action'), $('#modal-form form').serialize())
-        //             .done((response) => {
-        //                 $('#modal-form').modal('hide');
-        //                 table.ajax.reload();
-        //             })
-        //             // .fail((errors) => {
-        //             //     alert('Tidak dapat menyimpan data');
-        //             //     return;
-        //             // });
-        //             .fail((xhr) => {
-        //                 if (xhr.status === 422 && xhr.responseJSON && xhr.responseJSON.errors && xhr.responseJSON.errors.email) {
-        //                     // alert('Email harus menggunakan domain seperti @gmail.com atau @yahoo.com');
-        //                     alert(xhr.responseJSON.errors.email[0]);
-        //                 } else {
-        //                     alert('Tidak dapat menyimpan data');
-        //                 }
-        //             });
-        //     }
-        // });
         $('#modal-form').validator().on('submit', function (e) {
             if (!e.preventDefault()) {
                 $.ajax({

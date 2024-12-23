@@ -17,8 +17,7 @@
                     <p>Your level: {{ auth()->user()->level }}</p>  
 
 
-                    {{-- {{ __('You are logged in!') }} --}}
-
+                    @if (Auth::user()->level === 'super_admin')
                     <div class="container-fluid">
                         <!-- Small boxes (Stat box) -->
                         <div class="row">
@@ -42,7 +41,8 @@
                             </div>
                         </div>
                     </div>
-                    
+                    @endif
+
                 </div>
             </div>
         </div>

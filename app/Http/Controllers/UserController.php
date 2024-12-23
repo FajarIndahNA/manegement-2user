@@ -20,30 +20,8 @@ class UserController extends Controller
         return view('users.index');
     }
 
-    // public function data()
-    // {
-    //      // Pastikan kolom sesuai dengan tabel `users` Anda
-    // $users = User::select(['id', 'name', 'email', 'level']);
-
-    // // Debug untuk memastikan data berhasil diambil
-    // // dd($users->get()); 
-
-    // return DataTables::of($users)
-    //     ->addIndexColumn() // Tambahkan kolom nomor otomatis
-    //     ->addColumn('aksi', function ($row) {
-    //         return '
-    //             <button onclick="editForm(\''.route('user.update', $row->id).'\')" class="btn btn-sm btn-warning">Edit</button>
-    //             <button onclick="deleteData(\''.route('user.destroy', $row->id).'\')" class="btn btn-sm btn-danger">Delete</button>
-    //         ';
-    //     })
-    //     ->rawColumns(['aksi']) // Izinkan HTML di kolom 'aksi'
-    //     ->make(true);
-    // }
     public function data()
     {
-        // $user = User::isNotAdmin()->orderBy('id', 'desc')->get();
-        //yang akan ditampilin yang bukan level satu soalle admin
-
         $user = User::orderBy('id', 'desc')->get();
         return datatables()
             ->of($user)

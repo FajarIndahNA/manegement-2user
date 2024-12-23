@@ -102,15 +102,3 @@
         </form>
     </div>
 </div>
-
-{{-- <script>
-    // Pastikan jQuery dan Bootstrap sudah dimuat dengan benar
-$(document).ready(function(){
-    // Pastikan modal bekerja saat tombol close atau batal diklik
-    $('#modal-form').on('hidden.bs.modal', function () {
-        // Reset form ketika modal ditutup
-        $(this).find('form')[0].reset();
-    });
-});
-
-</script> --}}

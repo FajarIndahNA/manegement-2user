@@ -6,9 +6,6 @@
                 align-items: center;
                 width: 100%;">
                 <h5 class="modal-title" id="loginModal">{{ __('Login') }}</h5>
-                {{-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button> --}}
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" style=" background: transparent;
                     border: 2px solid transparent; color: #343a40; border-radius: 50%; 
                     padding: 0.5rem;
