@@ -35,3 +35,9 @@ Route::resource('/user', UserController::class);
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route main Dashboard
+Route::get('main_dashboard', function () {
+    return view ('monitoring');
+})->name('monitoring');
+
